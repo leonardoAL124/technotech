@@ -1,0 +1,85 @@
+.CuerpErr{
+    background-color: rgba(60, 60, 60, 0.2);
+}
+
+.TitError{
+    text-align: center;
+}
+
+.CuerpInd{
+    background-image: url('../images/FondoInd.jpeg');
+}
+
+.TitInd{
+    color: rgb(63, 102, 190);
+    margin: 10px;
+    font-size: 70px;
+}
+
+.IngInfo{
+    color: white;
+}
+
+.RegInd:link{
+    text-decoration: none;
+    color: white;
+}
+
+.RegInd:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.RegInd:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.RegInd:active {
+    text-decoration: underline;
+    color: white;
+}
+
+.footer{
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    margin-left: 0px;
+}
+
+.formulario{
+    color: white;
+}
+
+.estilo-titulo-formulario{
+    text-align: center;
+}
+
+.Parrafo{
+    padding: 5px;
+}
+
+.carrusel-posicion{
+    float: none;
+    margin: 0 auto;
+}
+
+.CuerpUsr{
+    background-color: rgb(63, 102, 190);
+}
+
+.PiePagUsr{
+    background-color: black; 
+    color: white;
+    margin:auto;
+}
+
+.img-posicion{
+    text-align: center;
+}
+
+.txt-recom{
+    color: white;
+}
