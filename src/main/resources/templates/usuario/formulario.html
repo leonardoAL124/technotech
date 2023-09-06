@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Latest compiled and minified CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <title>Editar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/styles/styles.css}">
+    </head>
+    <body class="CuerpUsr">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" style="color: rgb(63, 102, 190)" href="javascript:void(0)">TECHNOTECH</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Usuario</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/usuario">Lista usuarios</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pelicula</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/pelicula">Lista peliculas</a></li>
+                                <li><a class="dropdown-item" href="/pelicula/formulario">Registrar peliculas</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid col-lg-8 col-sm-9">
+            <form class="formulario" th:action="@{/usuario/formulario}" method="post" th:object="${usuario}">
+                <fieldset>
+                    <div class="estilo-titulo-formulario">
+                        <h2 class="IngInfo container-fluid col-lg-4 pl-0">Ingrese o Modifique la información</h2>
+                    </div>
+                    <div class="container-fluid col-lg-7">
+                        <div class="form-group">
+                            <label for="id" class="form-label mt-4">ID</label>
+                            <input type="number" class="form-control" id="id" name="id" aria-describedby="emailHelp" th:field="*{idUsr}">
+                        </div>
+                        <div class="form-group">
+                            <label for="correElec" class="form-label mt-4">Correo electrónico</label>
+                            <input type="email" class="form-control" id="correElecIngr" name="correo" aria-describedby="emailHelp" th:field="*{emailUsr}">
+                        </div>
+                        <div class="form-group">
+                            <label for="nombresIngr" class="form-label mt-4">Nombres</label>
+                            <input type="text" class="form-control" name="nombre" id="nombresIngr" th:field="*{nombreUsr}">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidosIngr" class="form-label mt-4">Apellidos</label>
+                            <input type="text" class="form-control" name="apellido" id="apellidosIngr" th:field="*{apellidoUsr}">
+                        </div>
+                        <div class="form-group">
+                            <label for="fechNacIngr" class="form-label mt-4">Fecha de nacimiento</label>
+                            <input type="date" class="form-control" name="fechNac" id="fechNacIngr" th:field="*{fecNacUsr}">
+                        </div>
+                        <div class="form-group">
+                            <label for="usuarioIngr" class="form-label mt-4">Usuario</label>
+                            <input type="text" class="form-control" name="usuario" id="usuarioIngr" th:field="*{userUsr}">
+                        </div>
+                        <div class="form-group">
+                            <label for="passIngr" class="form-label mt-4">Contraseña</label>
+                            <input type="text" class="form-control" name="password" id="passIngr" th:field="*{contraseniaUsr}">
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary" id="btn-enviar">Enviar</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <br>
+        </div>
+    </body>
+</html>

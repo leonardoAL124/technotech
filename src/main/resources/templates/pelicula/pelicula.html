@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Latest compiled and minified CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <title>Lista peliculas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/styles/styles.css}">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" style="color: rgb(63, 102, 190)" href="javascript:void(0)">TECHNOTECH</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Usuario</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/usuario">Lista usuarios</a></li>
+                                <li><a class="dropdown-item" href="/usuario/formulario">Registrar usuario</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pelicula</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/pelicula/formulario">Registrar peliculas</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container mt-3">
+            <h2>Lista de peliculas registradas en la base de datos</h2>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Categoria</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="peliculaVis : ${peliculas}">
+                        <td th:text="${peliculaVis.idPel}"></td>
+                        <td th:text="${peliculaVis.nombrePel}"></td>
+                        <td th:text="${peliculaVis.categoriaPel}"></td>
+                        <td>
+                            <a th:href="@{/pelicula/editar/} + ${peliculaVis.idPel}" class="btn btn-success">Editar</a>
+                            <a th:href="@{/pelicula/eliminar/} + ${peliculaVis.idPel}" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

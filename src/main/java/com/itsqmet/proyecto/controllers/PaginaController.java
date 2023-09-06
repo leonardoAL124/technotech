@@ -4,15 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 
-public class Principal {
+public class PaginaController {
     
     @GetMapping("/")
     public String home(){
-        return "index";
+        return "login";
     }
     
-    @GetMapping("/usuario")
-    public String usuario(){
-        return "usuario";
+    @GetMapping("/principal")
+    public String principal(){
+        return "principal";
     }
+    
 }
