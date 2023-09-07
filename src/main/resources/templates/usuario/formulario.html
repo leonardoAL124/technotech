@@ -34,6 +34,9 @@
                                 <li><a class="dropdown-item" href="/pelicula/formulario">Registrar peliculas</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Cerrar sesión</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -46,32 +49,36 @@
                     </div>
                     <div class="container-fluid col-lg-7">
                         <div class="form-group">
-                            <label for="id" class="form-label mt-4">ID</label>
-                            <input type="number" class="form-control" id="id" name="id" aria-describedby="emailHelp" th:field="*{idUsr}">
+                            <label class="form-label mt-4">ID</label>
+                            <input type="number" class="form-control" th:field="*{idUsr}">
                         </div>
                         <div class="form-group">
                             <label for="correElec" class="form-label mt-4">Correo electrónico</label>
-                            <input type="email" class="form-control" id="correElecIngr" name="correo" aria-describedby="emailHelp" th:field="*{emailUsr}">
+                            <input type="email" class="form-control" id="correElec" name="correo" aria-describedby="emailHelp" th:field="*{emailUsr}">
                         </div>
                         <div class="form-group">
-                            <label for="nombresIngr" class="form-label mt-4">Nombres</label>
-                            <input type="text" class="form-control" name="nombre" id="nombresIngr" th:field="*{nombreUsr}">
+                            <label for="nombres" class="form-label mt-4">Nombres</label>
+                            <input type="text" class="form-control" name="nombre" id="nombres" th:field="*{nombreUsr}">
                         </div>
                         <div class="form-group">
-                            <label for="apellidosIngr" class="form-label mt-4">Apellidos</label>
-                            <input type="text" class="form-control" name="apellido" id="apellidosIngr" th:field="*{apellidoUsr}">
+                            <label for="apellidos" class="form-label mt-4">Apellidos</label>
+                            <input type="text" class="form-control" name="apellido" id="apellidos" th:field="*{apellidoUsr}">
                         </div>
                         <div class="form-group">
-                            <label for="fechNacIngr" class="form-label mt-4">Fecha de nacimiento</label>
-                            <input type="date" class="form-control" name="fechNac" id="fechNacIngr" th:field="*{fecNacUsr}">
+                            <label class="form-label mt-4">Fecha de nacimiento</label>
+                            <input type="date" class="form-control" name="fechNac" th:field="*{fecNacUsr}">
                         </div>
                         <div class="form-group">
-                            <label for="usuarioIngr" class="form-label mt-4">Usuario</label>
-                            <input type="text" class="form-control" name="usuario" id="usuarioIngr" th:field="*{username}">
+                            <label class="form-label mt-4">Usuario</label>
+                            <input type="text" class="form-control" th:field="*{username}">
                         </div>
                         <div class="form-group">
-                            <label for="passIngr" class="form-label mt-4">Contraseña</label>
-                            <input type="text" class="form-control" name="password" id="passIngr" th:field="*{contraseniaUsr}">
+                            <label class="form-label mt-4">Contraseña</label>
+                            <input type="text" class="form-control" th:field="*{contraseniaUsr}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label mt-4">Rol</label>
+                            <input type="text" class="form-control" th:field="*{rolUsr}">
                         </div>
                         <br>
                         <div class="d-flex justify-content-center">
@@ -82,5 +89,6 @@
             </form>
             <br>
         </div>
+        <!-- <script src="/js/validacionUsr.js"></script> -->
     </body>
 </html>

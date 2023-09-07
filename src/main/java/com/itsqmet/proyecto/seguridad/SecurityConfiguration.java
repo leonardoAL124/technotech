@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
-import org.springframework.security.config.Customizer;
 import static org.springframework.security.config.Customizer.withDefaults;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -40,26 +38,26 @@ public class SecurityConfiguration {
         http
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll() // Permitir recursos estáticos como CSS, JS, etc.
-                                .requestMatchers("/principal").authenticated() // Requiere autenticación para /listaepisodios y /episodios
-                                .requestMatchers("/usuario/formulario").hasAnyAuthority("ADMIN") // Requiere rol ADMIN para /admin/**
-                                .anyRequest().permitAll() // Permite acceso no autenticado a todas las demás solicitudes
+                                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                                .requestMatchers("/principal").authenticated()
+                                .requestMatchers("/usuario/formulario", "/usuario", "/pelicula", "/pelicula/formulario").hasAnyAuthority("ADMIN") 
+                                .anyRequest().permitAll()
                 )
                 .formLogin(formLogin ->
                         formLogin
-                                .loginPage("/") // Especifica la página de inicio de sesión personalizada
+                                .loginPage("/")
                                 .permitAll()
-                                .loginProcessingUrl("/") // Ruta de procesamiento de inicio de sesión
-                                .usernameParameter("username") // Nombre del campo de nombre de usuario en el formulario
-                                .passwordParameter("contraseniaUsr") // Nombre del campo de contraseña en el formulario
+                                .loginProcessingUrl("/")
+                                .usernameParameter("username")
+                                .passwordParameter("contraseniaUsr")
                 )
                 .logout(logout -> logout
-                        .logoutUrl("/logout") // URL para la acción de deslogueo
-                        .logoutSuccessUrl("/") // Redirige después de deslogueo exitoso
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/")
                         .permitAll()
                 )
-                .httpBasic(withDefaults()) // Configura la autenticación básica con valores predeterminados
-                .csrf().disable(); // Deshabilita CSRF
+                .httpBasic(withDefaults())
+                .csrf().disable();
         return http.build();
     }
 }

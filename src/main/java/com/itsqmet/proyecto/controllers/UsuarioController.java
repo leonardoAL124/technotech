@@ -19,11 +19,6 @@ public class UsuarioController {
     @Autowired 
     UsuarioRepository usuarioRepository;
     
-//    @Bean
-//    public BCryptPasswordEncoder bCryptPasswordEncoder(){
-//        return new BCryptPasswordEncoder();
-//    }
-    
     //READ
     @GetMapping("/usuario")
     public String listarUsuario(Model model) {
@@ -80,7 +75,7 @@ public class UsuarioController {
     @GetMapping("/usuario/editar/{id}")
     public String editar(@PathVariable int id, Model model) {
         Optional<Usuario> usuario = usuarioRepository.findById(id);
-        model.addAttribute("usuario", usuario);
+        model.addAttribute("usuario1", usuario);
         return "/usuario/formulario";
     }
     
