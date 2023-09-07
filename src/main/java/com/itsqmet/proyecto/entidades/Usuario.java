@@ -24,8 +24,9 @@ public class Usuario {
     private String nombreUsr;
     private String apellidoUsr;
     private LocalDate fecNacUsr;
-    private String userUsr;
+    private String username;
     private String contraseniaUsr;
+    private String rolUsr;
     
     @JoinTable(
         name = "registro",

@@ -6,6 +6,8 @@ import com.itsqmet.proyecto.repositorios.UsuarioRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UsuarioController {
     @Autowired 
     UsuarioRepository usuarioRepository;
+    
+//    @Bean
+//    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+//        return new BCryptPasswordEncoder();
+//    }
     
     //READ
     @GetMapping("/usuario")
@@ -34,20 +41,38 @@ public class UsuarioController {
     
     @PostMapping("/registro")
     public String crearUsuario(Usuario user){
-        usuarioRepository.save(user);
+        Usuario usuario1 = new Usuario();
+        usuario1.setIdUsr(user.getIdUsr());
+        usuario1.setEmailUsr(user.getEmailUsr());
+        usuario1.setNombreUsr(user.getNombreUsr());
+        usuario1.setApellidoUsr(user.getApellidoUsr());
+        usuario1.setFecNacUsr(user.getFecNacUsr());
+        usuario1.setUsername(user.getUsername());
+        usuario1.setContraseniaUsr(user.getContraseniaUsr());
+        usuario1.setRolUsr(user.getRolUsr());
+        usuarioRepository.save(usuario1);
         return "redirect:/";
     }
     
     //CREATE - ADMIN
     @GetMapping("/usuario/formulario")
     public String regisUserAdmin(Model model){
-        model.addAttribute("usuario", new Usuario());
+        model.addAttribute("usuario1", new Usuario());
         return "/usuario/formulario";
     }
     
     @PostMapping("/usuario/formulario")
     public String crearUsuarioAdmin(Usuario user){
-        usuarioRepository.save(user);
+        Usuario usuario1 = new Usuario();
+        usuario1.setIdUsr(user.getIdUsr());
+        usuario1.setEmailUsr(user.getEmailUsr());
+        usuario1.setNombreUsr(user.getNombreUsr());
+        usuario1.setApellidoUsr(user.getApellidoUsr());
+        usuario1.setFecNacUsr(user.getFecNacUsr());
+        usuario1.setUsername(user.getUsername());
+        usuario1.setContraseniaUsr(user.getContraseniaUsr());
+        usuario1.setRolUsr(user.getRolUsr());
+        usuarioRepository.save(usuario1);
         return "redirect:/usuario";
     }
     

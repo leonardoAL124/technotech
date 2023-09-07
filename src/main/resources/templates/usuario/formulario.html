@@ -39,7 +39,7 @@
             </div>
         </nav>
         <div class="container-fluid col-lg-8 col-sm-9">
-            <form class="formulario" th:action="@{/usuario/formulario}" method="post" th:object="${usuario}">
+            <form class="formulario" th:action="@{/usuario/formulario}" method="post" th:object="${usuario1}">
                 <fieldset>
                     <div class="estilo-titulo-formulario">
                         <h2 class="IngInfo container-fluid col-lg-4 pl-0">Ingrese o Modifique la información</h2>
@@ -67,7 +67,7 @@
                         </div>
                         <div class="form-group">
                             <label for="usuarioIngr" class="form-label mt-4">Usuario</label>
-                            <input type="text" class="form-control" name="usuario" id="usuarioIngr" th:field="*{userUsr}">
+                            <input type="text" class="form-control" name="usuario" id="usuarioIngr" th:field="*{username}">
                         </div>
                         <div class="form-group">
                             <label for="passIngr" class="form-label mt-4">Contraseña</label>
